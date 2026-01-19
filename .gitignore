@@ -1,0 +1,40 @@
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+
+# Build
+target/
+bin/
+out/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradle
+.gradle/
+gradle/
+
+# Maven
+pom.xml.tag
+pom.xml.asc
+
+# Dependencies
+.classpath
+.project
+.settings/
+dependency-reduced-pom.xml
+
+# Misc
+*.log
+.env
