@@ -15,8 +15,8 @@ public class Bank {
       if (account.getAccountNumber().equals(acc.getAccountNumber())) {
         throw new IllegalArgumentException("Account number must be unique!");
       }
-      accounts.add(account);
     }
+    accounts.add(account);
   }
 
   public BankAccount findAccount(String accountNumber) {
@@ -26,5 +26,16 @@ public class Bank {
       }
     }
     throw new IllegalArgumentException("Accound number not found");
+  }
+
+  public void displyAccounts() {
+    if (accounts.isEmpty()) {
+      System.out.println("No accounts available.");
+      return;
+    }
+    for (BankAccount acc : accounts) {
+      acc.toStringDetails();
+      System.out.println("===");
+    }
   }
 }

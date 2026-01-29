@@ -26,23 +26,29 @@ public class BankApplication {
           System.out.println("Enter your name: ");
           String name = scanner.nextLine();
           System.out.println("Enter amount to deposit initially: ");
-          int initialBalance = scanner.nextInt();
-          scanner.nextLine();
+          double initialBalance = scanner.nextDouble();
           double interestRate = 0.1;
           String accountNumber = String.valueOf(generateAccountNumber());
           BankAccount account = new SavingsAccount(accountNumber, name, initialBalance, interestRate);
           bank.addAccount(account);
+          System.out.println("=== Account created successfully! ===");
+          System.out.println("=== Kindly keep your account number secure. ===");
+          account.toStringDetails();
+          System.out.println("=== ===");
         }
         case 2 -> {
           System.out.println("Enter your name: ");
           String name = scanner.nextLine();
           System.out.println("Enter amount to deposit initially: ");
-          int initialBalance = scanner.nextInt();
-          scanner.nextLine();
-          int overdraftLimit = 500;
+          double initialBalance = scanner.nextDouble();
+          double overdraftLimit = 500.0;
           String accountNumber = String.valueOf(generateAccountNumber());
           BankAccount account = new CheckingAccount(accountNumber, name, initialBalance, overdraftLimit);
           bank.addAccount(account);
+          System.out.println("=== Account created successfully! ===");
+          System.out.println("=== Kindly keep your account number secure. ===");
+          account.toStringDetails();
+          System.out.println("=== ===");
         }
         case 3 -> {
           System.out.println("Enter account number: ");
@@ -66,26 +72,26 @@ public class BankApplication {
           System.out.println("Enter account number: ");
           String accountNumber = scanner.nextLine();
           BankAccount account = bank.findAccount(accountNumber);
-          account.getBalance();
+          System.out.println("$" + account.getBalance());
         }
         case 6 -> {
           System.out.println("Enter account number: ");
-          // String accountNumber = scanner.nextLine();
-          // BankAccount account = bank.findAccount(accountNumber);
-          // account.applyInterest();
+          String accountNumber = scanner.nextLine();
+          BankAccount account = bank.findAccount(accountNumber);
+          account.applyInterest();
         }
         case 7 -> {
-          System.out.println(bank);
+          bank.displyAccounts();
         }
         case 8 -> {
           System.out.println("=== Thank you for using Banking System ===");
-          break;
+          scanner.close();
+          return;
         }
         default -> System.out.println("=== Invalid choice. Please try again.");
 
       }
 
-      scanner.close();
     }
   }
 

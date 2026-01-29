@@ -19,9 +19,11 @@ public class SavingsAccount extends BankAccount {
     this.interestRate = interestRate;
   }
   
+  @Override
   public void applyInterest() throws InvalidAmountException {
     double interest = getBalance() * interestRate / 100;
     deposit(interest);
+    toStringDetails();
   }
 
   @Override

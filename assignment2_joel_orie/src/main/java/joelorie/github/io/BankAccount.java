@@ -63,6 +63,9 @@ public class BankAccount {
         System.out.println("Balance: $" + balance);
     }
 
+    public void applyInterest() throws InvalidAmountException {
+    }
+
     public static void main(String[] args) throws InvalidAmountException, InsufficientFundsException {
         BankAccount account = new BankAccount("123456789", "John Doe", 1000.0);
         account.toStringDetails();
