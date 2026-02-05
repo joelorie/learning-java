@@ -1,4 +1,4 @@
-package joelorie.github.io.shape_hierarchy;
+package joelorie.github.io.shapehierarchy;
 
 public class Shape {
     private String color;

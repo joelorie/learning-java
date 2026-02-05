@@ -1,4 +1,4 @@
-package joelorie.github.io.vehicle_hierarchy;
+package joelorie.github.io.vehiclehierarchy;
 
 import javax.management.InvalidAttributeValueException;
 
