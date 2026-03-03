@@ -1,0 +1,48 @@
+version: 2.1
+
+# Define the execution environment
+executors:
+  java-builder:
+    docker:
+      - image: cimg/openjdk:17.0 # Match this to your Java version
+    working_directory: ~/project
+
+jobs:
+  build-and-test:
+    executor: java-builder
+    steps:
+      # 1. Checkout the code
+      - checkout
+
+      # 2. Build the project
+      - run:
+          name: Build Package
+          command: |
+            cd assinment1_joel_orie
+            mvn clean package
+
+      # 3. Run Tests
+      - run:
+          name: Run Tests
+          command: |
+            cd assinment1_joel_orie
+            mvn test
+
+      # 4. Archive Artifacts (equivalent to archiveArtifacts)
+      - run:
+          name: Prepare Artifacts
+          command: |
+            mkdir -p built
+            cp assinment1_joel_orie/target/*.jar built/
+      - store_artifacts:
+          path: built
+
+# Define the automation trigger
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: main
